@@ -16,7 +16,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
+import { cssInterop } from 'nativewind';
 import {
   Colors,
   DebugInstructions,
@@ -24,6 +24,11 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import IconEdit from './icon_edit.svg';
+import IconEditOne from './icon_edit_1.svg';
+import './global.css';
+
+const IconWIthStyle = cssInterop(IconEditOne, { className: 'style' });
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -76,10 +81,9 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
+            <Text className={'mt-12 text-blue-400'}>App.tsx</Text>
+            <IconEdit className={'text-pink-400'} width={40} height={40} />
+            <IconWIthStyle className={'text-pink-400'} width={40} height={40} />
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
